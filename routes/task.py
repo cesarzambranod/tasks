@@ -5,20 +5,20 @@ from utils.db import db
 task = Blueprint("task", __name__)
 
 
-@task.route('/')
+@task.route("/")
 def index():
     task = Task.query.all()
-    return render_template('index.html', task=task)
+    return render_template("index.html", task=task)
 
 
-@task.route('/new', methods=['POST'])
+@task.route("/new", methods=["POST"])
 def add():
-    if request.method == 'POST':
+    if request.method == "POST":
 
         # receive data from the form
-        tittle = request.form['tittle']
-        description = request.form['description']
-        priority = request.form['priority']
+        tittle = request.form["tittle"]
+        description = request.form["description"]
+        priority = request.form["priority"]
 
         # create a new Task object
         new_Task = Task(tittle, description, priority)
@@ -27,9 +27,9 @@ def add():
         db.session.add(new_Task)
         db.session.commit()
 
-        flash('Task added successfully!')
+        flash("Task added successfully!")
 
-        return redirect(url_for('task.index'))
+        return redirect(url_for("task.index"))
 
 
 @task.route("/update/<string:id>", methods=["GET", "POST"])
@@ -39,15 +39,15 @@ def update(id):
     task = Task.query.get(id)
 
     if request.method == "POST":
-        task.tittle = request.form['tittle']
-        task.description = request.form['description']
-        task.priority = request.form['priority']
+        task.tittle = request.form["tittle"]
+        task.description = request.form["description"]
+        task.priority = request.form["priority"]
 
         db.session.commit()
 
-        flash('Task updated successfully!')
+        flash("Task updated successfully!")
 
-        return redirect(url_for('task.index'))
+        return redirect(url_for("task.index"))
 
     return render_template("update.html", task=task)
 
@@ -58,9 +58,9 @@ def delete(id):
     db.session.delete(task)
     db.session.commit()
 
-    flash('Task deleted successfully!')
+    flash("Task deleted successfully!")
 
-    return redirect(url_for('task.index'))
+    return redirect(url_for("task.index"))
 
 
 @task.route("/about")
