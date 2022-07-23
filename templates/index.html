@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-Flask SQLAlchemy CRUD | Home
+Tasking
 {% endblock %}
 
 {% block body %}
@@ -25,8 +25,7 @@ Flask SQLAlchemy CRUD | Home
                 <div class="d-flex justify-content-between">
                     <h5 class="card-title h6">{{ task.tittle}}</h5>
                     <div>
-                        <a href="{{ url_for('task.update', id=tak.id) }}"
-                            class="btn btn-dark btn-sm rounded-0">Edit</a>
+                        <a href="{{ url_for('task.update', id=tak.id) }}" class="btn btn-dark btn-sm rounded-0">Edit</a>
                         <a href="{{ url_for('task.delete', id=tak.id) }}"
                             class="btn btn-danger btn-sm rounded-0">Delete</a>
                     </div>
