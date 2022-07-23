@@ -1,0 +1,41 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="col-md-4 offset-md-4">
+  <div class="card card-body bg-dark text-white">
+    <h1>Edit Task</h1>
+
+    <form action="{{url_for('task.update', id=task.id)}}" method="POST">
+      <div class="mb-3">
+        <label for="tittle">Write your tittle:</label>
+        <input
+          type="text"
+          name="tittle"
+          value="{{task.tittle}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description">Write your description:</label>
+        <input
+          type="description"
+          name="description"
+          value="{{task.description}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="priority">Write your priority:</label>
+        <input
+          type="tel"
+          name="priority"
+          value="{{task.priority}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+
+      <button class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

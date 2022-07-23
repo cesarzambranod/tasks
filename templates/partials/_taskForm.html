@@ -1,0 +1,39 @@
+<form action="/new" method="POST" class="card bg-black text-light">
+    <div class="card-body p-4">
+      <h1 class="h5 mb-4">Add Task</h1>
+  
+      <div class="mb-3">
+        <label for="tittle">Write your Tittle:</label>
+        <input
+          type="text"
+          name="tittle"
+          class="form-control rounded-0 bg-dark border-0 text-white"
+          placeholder="Write Tittle"
+          autofocus
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="description">Write your description:</label>
+        <input
+          type="text"
+          name="description"
+          class="form-control rounded-0 bg-dark border-0 text-white"
+          placeholder="Write your description"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="priority">Write your priority:</label>
+        <input
+          type="text"
+          name="priority"
+          class="form-control rounded-0 bg-dark border-0 text-white"
+          placeholder="Hide - Low"
+        />
+      </div>
+  
+      <button class="btn btn-primary">Save</button>
+    </div>
+  </form>

@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Flask SQLAlchemy CRUD | Home
+{% endblock %}
+
+{% block body %}
+
+<!-- FORM -->
+<div class="row">
+
+    <div class="col-md-5 p-5">
+        <!-- MESSAGE -->
+        {% include 'partials/_message.html' %}
+
+        <!-- FORM -->
+        {% include 'partials/_taskForm.html' %}
+    </div>
+
+    <!-- task list -->
+    <div class="col-md-7">
+        {% for tak in task %}
+        <div class="card mb-1 bg-black text-white">
+            <div class="card-body py-2 px-3">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-title h6">{{ task.tittle}}</h5>
+                    <div>
+                        <a href="{{ url_for('task.update', id=tak.id) }}"
+                            class="btn btn-dark btn-sm rounded-0">Edit</a>
+                        <a href="{{ url_for('task.delete', id=tak.id) }}"
+                            class="btn btn-danger btn-sm rounded-0">Delete</a>
+                    </div>
+                </div>
+                <p class="card-text">{{ tak.description }}</p>
+                <p class="card-text">{{ tak.priority }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}
